@@ -30,21 +30,6 @@ xss_Explotacion_DVWA_Selenium.py
 Para usar los scripts antes deben editarse para cambiar las variables que aparecen en las primeras lineas como por ejemplo
 "email", "password" , "url" , etc
 
-# Como ejecutar los scripts
-
-1 - Instalar selenium -> pip install selenium
-2 - Descargar geckodriver y copiarlo al path c:\windows\system32 -> https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-win32.zip esta version es si se tiene instalado python 32 bits
-3 - Editar el script deseado en bloc de notas y cambiar las variables email, password, url que estásn en las primeras lineas de los scripts
-4 - Darle doble click al script.py deseado
-
-
-
-
-
-
-
-
-
 
 * gmail_Envio_Correo_Selenium.py    -> Este script se loguea a gmail via web y se envia un correo asi mismo
 
@@ -60,5 +45,12 @@ Para usar los scripts antes deben editarse para cambiar las variables que aparec
 
 
 
+# Como ejecutar los scripts
 
-                                                       
+1 - Instalar selenium -> pip install selenium
+
+2 - Descargar geckodriver y copiarlo al path c:\windows\system32 -> https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-win32.zip esta version es si se tiene instalado python 32 bits
+
+3 - Editar el script deseado en bloc de notas y cambiar las variables email, password, url que estásn en las primeras lineas de los scripts
+
+4 - Darle doble click al script.py deseado
