@@ -67,23 +67,3 @@ time.sleep(5)
 #print browser.page_source
 # guardar pantallazo
 browser.save_screenshot("mail.png")
-
-
-admin/login.php
-
-user=admin&pass=Segura_2017&tokenanticrsf&
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
