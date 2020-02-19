@@ -62,8 +62,9 @@ las lineas que deben ser actualizadas en los scripts al pasar del tiempo son por
 # Link del like de facebook julio 2017
 like= driver.find_element_by_xpath("id('fbPhotoSnowliftFeedback')/div/div[1]/div/div/div/div/div/span[1]/div/a")
 
-# Link del like de facebook Enero 2020, se cambio por css selector que fue mas facil de encontrar que xpath para este like especifico teniendo en cuenta que facebook modifica cada cierto tiempo el codigo, la desventaja al usar css_selector sobre xpath es que con css_selector el script diseñado en chrome ya no funciona para firefox, se debe encontrar el css_selector para cada navegador independientemente
+Link del like de facebook Enero 2020, se cambio por css selector que fue mas facil de encontrar que xpath para este like especifico teniendo en cuenta que facebook modifica cada cierto tiempo el codigo, la desventaja al usar css_selector sobre xpath es que con css_selector el script diseñado en chrome ya no funciona para firefox, se debe encontrar el css_selector para cada navegador independientemente
+
 # Like de facebook en chrome
-	like= driver.find_element_by_css_selector("#u_2_2 > div:nth-child(4) > div > div._6iis > div > span:nth-child(1) > div > div > a")
+like= driver.find_element_by_css_selector("#u_2_2 > div:nth-child(4) > div > div._6iis > div > span:nth-child(1) > div > div > a")
 
 A mi punto de vista xpath sigue siendo la mejor opcion inicial para encontrar un elemento web con el que se quiera interactuar, cuando no es fácil con xpath se procede a explorar otras opciones
