@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Autor: @kr1shn4murt1
-# Fecha: Julio 11 2017
+# Fecha Inicial: Julio 11 2017
+# Fecha Actualizacion: Febrero 19 2020
 # Este script se loguea a facebook y da like a
 # todas las fotos del yogui Jani Jaatinen @gokulacandra
 
@@ -10,12 +11,22 @@ import time
 from selenium import webdriver
 # Libreria importada paras simular el enter
 from selenium.webdriver.common.keys import Keys
+# Libreria importada para hacer hover sobre like 
+# y despues poder dar click cuando sea visible
+from selenium.webdriver.common.action_chains import ActionChains
+
 
 url_Objetivo= 'https://www.facebook.com'
 email= 'pruebas@gmail.com'
 password= 'password' 
 
-driver= webdriver.Firefox()
+chrome_options = webdriver.ChromeOptions()
+
+prefs = {"profile.default_content_setting_values.notifications" : 2}
+
+chrome_options.add_experimental_option("prefs",prefs)
+
+driver = webdriver.Chrome(chrome_options=chrome_options)
 driver.get(url_Objetivo)
 
 # Condicion que espera que los campos de login sean visibles
@@ -47,11 +58,12 @@ driver.get("https://www.facebook.com/jani.jaatinen/photos?pnref=lhc")
 body= driver.find_element_by_xpath('//body')
 body.send_keys(Keys.PAGE_DOWN)
 
-time.sleep(2)
+time.sleep(3)
 
 def dar_Like():
-	# Se define el link del like
-	like= driver.find_element_by_xpath("id('fbPhotoSnowliftFeedback')/div/div[1]/div/div/div/div/div/span[1]/div/a")
+	# Se define el link del like, se cambio por css selector es mas facil que xpath teniendo en cuenta que facebook modifica cada cierto tiempo el codigo
+	like= driver.find_element_by_css_selector("#u_2_2 > div:nth-child(4) > div > div._6iis > div > span:nth-child(1) > div > div > a")
+
 	# Se verifica si no se le ha dado like a la foto
 	if like.get_attribute('aria-pressed')== "false":
 		# Se da click a like
@@ -62,9 +74,10 @@ def click_Siguiente():
 	siguiente.click()
 	time.sleep(2)
 
-driver.get('https://www.facebook.com/photo.php?fbid=10154660342821512&set=pb.689476511.-2207520000.1499811097.&type=3&theater')
-time.sleep(2)
-like= driver.find_element_by_xpath("id('fbPhotoSnowliftFeedback')/div/div[1]/div/div/div/div/div/span[1]/div/a")
+
+driver.get('https://web.facebook.com/photo.php?fbid=10154660342821512&set=a.10150652203061512&type=3&theater')
+time.sleep(5)
+like= driver.find_element_by_css_selector("#u_2_2 > div:nth-child(4) > div > div._6iis > div > span:nth-child(1) > div > div > a")
 
 # Like a la primera foto, de aqui en adelante 
 #se hace un ciclo
@@ -79,23 +92,3 @@ while True:
 # mostrar ventana de alert javascript, se ejecuta pero
 # genera error en la ejecucion del script
 #driver.execute_script("alert('Saludos terricola');")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
